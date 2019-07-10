@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+body{
+    background-color: purple;
+}
+#register{
+    hedight:500px;
+    width:250px;
+    background-color:cyan;
+    padding:10px;
+    border-radius:20px;
+    margin-left:200px;
+    margin-top:100px;
+}
+#messages{
+    color:white;
+    margin-left:50px;
+}
+</style>
+</head>
+<body>
+
+<div id="register">
+<form action="register" method="post">
+{% csrf_token %}
+    <input type="text" name="first_name" placeholder="First Name" required></br></br>
+    <input type="text" name="last_name"  placeholder="Last Name" required></br></br>
+    <input type="email" name="email" placeholder="Email" required></br></br>
+    <input type="text" name="username" placeholder="Username"></br></br>
+    <input type="password" name="password1" placeholder="Password" required></br></br>
+    <input type="password" name="password2" placeholder="Confirm Password" required></br></br>
+   <!-- <input type="number" name="contact" placeholder="Contact no"></br></br> -->
+    <input type="submit" value="Register" >
+</form>
+</div>
+</br>
+</br>
+{% for message in messages %}
+<div id="messages">
+<h1>{{message}}</h1>
+{% endfor %}
+</div>
+</body>
+</html>
